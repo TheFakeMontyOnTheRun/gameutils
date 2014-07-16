@@ -1,0 +1,185 @@
+/**
+ * 
+ */
+package br.odb.utils.math;
+
+import br.odb.utils.Utils;
+
+/**
+ * @author monty
+ * 
+ */
+public class Matrix {
+	public float[][] values;
+	int sizeX;
+	int sizeY;
+
+	public Matrix(int dx, int dy, float[] rawData) {
+		init(dx, dy, rawData);
+	}
+
+	public Matrix(Matrix matrix) {
+		init(matrix);
+	}
+
+	public Matrix(int i, int j) {
+		init(i, j, null);
+	}
+
+	private void init(int dx, int dy, float[] rawData) {
+
+		int head = 0;
+		sizeX = dx;
+		sizeY = dy;
+		values = new float[dy][];
+
+		for (int c = 0; c < dy; ++c) {
+
+			values[c] = new float[dx];
+
+			for (int d = 0; d < dx; ++d) {
+
+				if (rawData != null && head < rawData.length) {
+					values[c][d] = rawData[head];
+					++head;
+				} else {
+					values[c][d] = 0.0f;
+				}
+			}
+		}
+	}
+
+	public Vec3 getTranslation() {
+		Vec3 toReturn = new Vec3();
+		//
+		// toReturn.setX(values[ 3 ][ 0 ]);
+		// toReturn.setY(values[ 3 ][ 1 ]);
+		// toReturn.setZ(values[ 3 ][ 2 ]);
+
+		return toReturn;
+	}
+
+	public Vec3 getScale() {
+		Vec3 toReturn = new Vec3();
+		//
+		// toReturn.setX(values[ 0 ][ 0 ]);
+		// toReturn.setY(values[ 1 ][ 1 ]);
+		// toReturn.setZ(values[ 2 ][ 2 ]);
+
+		return toReturn;
+	}
+
+	public void compose(Matrix transform) {
+		init(transform);
+		// multiply( transform );
+	}
+
+	// private void multiply(final Matrix transform) {
+	// Matrix copyThis = new Matrix( this );
+	//
+	// for ( int c = 0; c < 4; ++c ) {
+	// for ( int d = 0; d < 4; ++d ) {
+	// values[ c ][ d ] = 0;
+	// for ( int e = 0; e < 4; ++e ) {
+	// values[ c ][ d ] += transform.values[ c ][ e ] * copyThis.values[ e ][ d
+	// ];
+	// }
+	// }
+	// }
+	// }
+
+	private float[] getRawDataCopy() {
+		float[] toReturn = new float[16];
+
+		int used = 0;
+
+		for (int c = 0; c < 4; ++c) {
+			for (int d = 0; d < 4; ++d) {
+				toReturn[used] = values[c][d];
+				++used;
+			}
+		}
+
+		return toReturn;
+	}
+
+	private void init(Matrix transform) {
+		init(4, 4, transform.getRawDataCopy());
+	}
+
+	public static Matrix makeIdentity(int i) {
+
+		float[] rawData = new float[i * i];
+
+		for (int x = 0; x < i; ++x) {
+			for (int y = 0; y < i; ++y) {
+				rawData[(i * y) + x] = (x == y) ? 1.0f : 0.0f;
+			}
+		}
+
+		Matrix m = new Matrix(i, i, rawData);
+		return m;
+	}
+
+	public static Matrix makeRotationAlongZ(double rads) {
+
+		float sin = (float) Math.sin(Math.PI / 2.0f);
+		float cos = (float) Math.cos(Math.PI / 2.0f);
+		float[] rawData = new float[9];
+		rawData[0] = cos;
+		rawData[1] = -sin;
+		rawData[2] = 0.0f;
+		rawData[3] = sin;
+		rawData[4] = cos;
+		rawData[5] = 0.0f;
+		rawData[6] = 0.0f;
+		rawData[7] = 0.0f;
+		rawData[8] = 1.0f;
+
+		Matrix m = new Matrix(3, 3, rawData);
+
+		return m;
+	}
+
+	public boolean isIdentity() {
+
+		for (int x = 0; x < sizeX; ++x) {
+			for (int y = 0; y < sizeY; ++y) {
+
+				if (x == y) {
+					if (!Utils.eqFloat(1.0f, values[y][x]))
+						return false;
+				} else {
+					if (!Utils.eqFloat(0.0f, values[y][x]))
+						return false;
+				}
+			}
+		}
+
+		return true;
+	}
+
+	public boolean isNullMatrix() {
+
+		for (int x = 0; x < sizeX; ++x) {
+
+			for (int y = 0; y < sizeY; ++y) {
+
+				if (!Utils.eqFloat(0.0f, values[y][x]))
+					return false;
+			}
+		}
+
+		return true;
+	}
+
+	// public Vec3 getRotation(){
+	// Vec3 toReturn = new Vec3();
+	//
+	// toReturn.x = values[ 0 ][ 0 ];
+	// toReturn.y = values[ 1 ][ 1 ];
+	// toReturn.z = values[ 2 ][ 2 ];
+	//
+	// return toReturn;
+	// }
+}
