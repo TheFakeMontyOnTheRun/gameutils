@@ -2,10 +2,10 @@ package br.odb.utils;
 
 public class Color {
 
-	private int r;
-	private int g;
-	private int b;
-	private int a;
+	public int r;
+	public int g;
+	public int b;
+	public int a;
 
 	public Color(int argb) {
 
