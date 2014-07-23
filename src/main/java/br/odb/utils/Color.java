@@ -18,10 +18,10 @@ public class Color {
 	// ------------------------------------------------------------------------------------------------------------
 
 	public Color(int r, int g, int b, int a) {
-		this.setR(r);
-		this.setG(g);
-		this.setB(b);
-		this.setA(a);
+		this.r = (r);
+		this.g = (g);
+		this.b = (b);
+		this.a = (a);
 	}
 
 	public Color() {
@@ -48,67 +48,6 @@ public class Color {
 		a = (int) (255 * a2);
 	}
 
-	/**
-	 * @param r
-	 *            the r to set
-	 */
-	public void setR(int r) {
-		this.r = Utils.clamp(r, 0, 255);
-	}
-
-	/**
-	 * @return the r
-	 */
-	public int getR() {
-		return r;
-	}
-
-	/**
-	 * @param g
-	 *            the g to set
-	 */
-	public void setG(int g) {
-		this.g = Utils.clamp(g, 0, 255);
-	}
-
-	/**
-	 * @return the g
-	 */
-	public int getG() {
-		return g;
-	}
-
-	/**
-	 * @param b
-	 *            the b to set
-	 */
-	public void setB(int b) {
-		this.b = Utils.clamp(b, 0, 255);
-	}
-
-	/**
-	 * @return the b
-	 */
-	public int getB() {
-		return b;
-	}
-
-	/**
-	 * @param a
-	 *            the a to set
-	 */
-	public Color setA(int a) {
-		this.a = Utils.clamp(a, 0, 255);
-
-		return this;
-	}
-
-	/**
-	 * @return the a
-	 */
-	public int getA() {
-		return a;
-	}
 
 	@Override
 	public String toString() {
@@ -195,10 +134,10 @@ public class Color {
 	}
 
 	public void set(int r, int g, int b, int a) {
-		setA(a);
-		setR(r);
-		setG(g);
-		setB(b);
+		this.a = a;
+		this.r = r;
+		this.g = g;
+		this.b = b;
 	}
 
 	public void set(int r, int g, int b) {
@@ -208,10 +147,10 @@ public class Color {
 	public static Color getColorFromHTMLColor(String htmlColor) {
 		Color toReturn = new Color();
 
-		toReturn.setR(Integer.parseInt(htmlColor.substring(1, 3), 16));
-		toReturn.setG(Integer.parseInt(htmlColor.substring(3, 5), 16));
-		toReturn.setB(Integer.parseInt(htmlColor.substring(5, 7), 16));
-		toReturn.setA(255);
+		toReturn.r = (Integer.parseInt(htmlColor.substring(1, 3), 16));
+		toReturn.g = (Integer.parseInt(htmlColor.substring(3, 5), 16));
+		toReturn.b = (Integer.parseInt(htmlColor.substring(5, 7), 16));
+		toReturn.a = (255);
 
 		return toReturn;
 	}
