@@ -49,30 +49,30 @@ public class Matrix {
 		}
 	}
 
-	public Vec3 getTranslation() {
-		Vec3 toReturn = new Vec3();
+//	public Vec3 getTranslation() {
+//		Vec3 toReturn = new Vec3();
 		//
 		// toReturn.setX(values[ 3 ][ 0 ]);
 		// toReturn.setY(values[ 3 ][ 1 ]);
 		// toReturn.setZ(values[ 3 ][ 2 ]);
+//
+//		return toReturn;
+//	}
 
-		return toReturn;
-	}
-
-	public Vec3 getScale() {
-		Vec3 toReturn = new Vec3();
+//	public Vec3 getScale() {
+//		Vec3 toReturn = new Vec3();
 		//
 		// toReturn.setX(values[ 0 ][ 0 ]);
 		// toReturn.setY(values[ 1 ][ 1 ]);
 		// toReturn.setZ(values[ 2 ][ 2 ]);
+//
+//		return toReturn;
+//	}
 
-		return toReturn;
-	}
-
-	public void compose(Matrix transform) {
-		init(transform);
+//	public void compose(Matrix transform) {
+//		init(transform);
 		// multiply( transform );
-	}
+//	}
 
 	// private void multiply(final Matrix transform) {
 	// Matrix copyThis = new Matrix( this );

@@ -1,6 +1,5 @@
 package br.odb.utils;
 
-
 public enum Direction {
 
 	N("N", "North"), E("E", "East"), S("S", "South"), W("W", "West"), FLOOR(
@@ -18,13 +17,6 @@ public enum Direction {
 	public String toString() {
 		return prettyName;
 	}
-	
-	public static Direction getOppositeDirection( Direction d) {
-		
-		return Direction.values()[ Utils.getOppositeDirection( d.ordinal() ) ];
-	}
-	
-	
 
 	public static Direction getDirectionForPrettyName(String prettyName) {
 
@@ -48,7 +40,24 @@ public enum Direction {
 		return null;
 	}
 
-	public static Direction getOpositeFor(Direction d) {
-		return Direction.values()[Utils.getOppositeDirection(d.ordinal())];
+	public static Direction getOppositeDirection(Direction d) {
+
+		switch (d) {
+
+		case N:
+			return S;
+		case E:
+			return W;
+		case S:
+			return N;
+		case W:
+			return E;
+		case FLOOR:
+			return CEILING;
+		case CEILING:
+			return FLOOR;
+		}
+		
+		return FLOOR;
 	}
 }
