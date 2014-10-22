@@ -20,3 +20,5 @@ target/maven-archiver/pom.properties
 target/surefire-reports/TEST-br.odb.utils.tests.RectTest.xml
 
 *.txt
+
+*.xml
