@@ -58,8 +58,8 @@ public class Utils {
 
 
 	public static boolean eqFloat(float f1, float f2) {
-		int int1 = (int) (f1 * 1000);
-		int int2 = (int) (f2 * 1000);
+		int int1 = Math.round(f1);
+		int int2 = Math.round(f2);
 		return int1 == int2;
 	}
 
