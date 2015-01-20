@@ -1,5 +1,7 @@
 package br.odb.utils.math;
 
+import java.io.Serializable;
+
 import br.odb.utils.Utils;
 
 /**
@@ -8,8 +10,12 @@ import br.odb.utils.Utils;
  * 
  */
 
-public class Vec3 {
+public class Vec3 implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 688571051366412593L;
 	/**
 	 * 
 	 */

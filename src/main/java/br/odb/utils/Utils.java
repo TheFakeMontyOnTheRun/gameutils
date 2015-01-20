@@ -7,8 +7,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import br.odb.utils.math.Vec2;
-
 
 
 /**
@@ -58,14 +56,8 @@ public class Utils {
 
 
 	public static boolean eqFloat(float f1, float f2) {
-		int int1 = Math.round(f1);
-		int int2 = Math.round(f2);
-		return int1 == int2;
-	}
-
-	public static boolean eqFloat(float f1, float f2, int point) {
-		int int1 = (int) (f1 * point);
-		int int2 = (int) (f2 * point);
+		int int1 = (int) Math.round(f1);
+		int int2 = (int) Math.round(f2);
 		return int1 == int2;
 	}
 

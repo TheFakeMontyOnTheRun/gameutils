@@ -1,7 +1,14 @@
 package br.odb.utils;
 
-public class Color {
+import java.io.Serializable;
 
+public class Color implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3950308399852846336L;
+	
 	public int r;
 	public int g;
 	public int b;

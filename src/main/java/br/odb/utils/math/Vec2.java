@@ -1,7 +1,14 @@
 package br.odb.utils.math;
 
-public class Vec2 {
+import java.io.Serializable;
 
+public class Vec2 implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7000747865441259950L;
+	
 	public float x;
 	public float y;
 	public int space;
