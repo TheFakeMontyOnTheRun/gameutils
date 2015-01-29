@@ -31,19 +31,8 @@ public class Vec3 implements Serializable {
 	/**
 	 * 
 	 */
-	public int index;
-	/**
-	 * 
-	 */
-	private int space;
-
-	/**
-	 * 
-	 */
 	public Vec3() {
 		this(0, 0, 0);
-		index = 0;
-		space = 0;
 	}
 
 	/**
@@ -64,8 +53,6 @@ public class Vec3 implements Serializable {
 		x = x2;
 		y = y2;
 		z = z2;
-		index = -1;
-		space = 0;
 	}
 
 	@Override
@@ -145,8 +132,6 @@ public class Vec3 implements Serializable {
 	public void copy(Vec3 place) {
 
 		set(place.x, place.y, place.z);
-		space = (place.space);
-		index = (place.index);
 	}
 
 	public void set(float _x, float _y, float _z) {
