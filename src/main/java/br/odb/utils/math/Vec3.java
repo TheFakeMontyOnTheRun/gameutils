@@ -28,6 +28,7 @@ public class Vec3 implements Serializable {
 	 * 
 	 */
 	public float z;
+
 	/**
 	 * 
 	 */
@@ -68,12 +69,19 @@ public class Vec3 implements Serializable {
 		return toReturn;
 	}
 
-	/**
-	 * 	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
-		return toString().hashCode();
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Float.floatToIntBits(x);
+		result = prime * result + Float.floatToIntBits(y);
+		result = prime * result + Float.floatToIntBits(z);
+		return result;
 	}
 
 	/**
@@ -81,14 +89,15 @@ public class Vec3 implements Serializable {
 	 */
 	@Override
 	public boolean equals(Object that) {
-		
+
 		if (this == that)
 			return true;
 		if (!(that instanceof Vec3))
 			return false;
 		Vec3 v = (Vec3) that;
-		
-		return Utils.eqFloat( v.x, x ) && Utils.eqFloat( v.y, y ) &&  Utils.eqFloat( v.z, z );
+
+		return Utils.eqFloat(v.x, x) && Utils.eqFloat(v.y, y)
+				&& Utils.eqFloat(v.z, z);
 	}
 
 	public float length() {
@@ -177,7 +186,6 @@ public class Vec3 implements Serializable {
 	}
 
 	public float dotProduct(Vec3 v2) {
-
 		return (x * v2.x) + (y * v2.y) + (z * v2.z);
 	}
 
@@ -185,17 +193,5 @@ public class Vec3 implements Serializable {
 
 		return !(Float.isInfinite(x) || Float.isNaN(x) || Float.isInfinite(y)
 				|| Float.isNaN(y) || Float.isInfinite(z) || Float.isNaN(z));
-	}
-
-	public void setProtectNaN(Vec3 v) {
-
-		if (!Float.isNaN(v.x))
-			x = v.x;
-
-		if (!Float.isNaN(v.y))
-			y = v.y;
-
-		if (!Float.isNaN(v.z))
-			z = v.z;
 	}
 }

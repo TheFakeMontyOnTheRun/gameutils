@@ -10,6 +10,7 @@ import br.odb.utils.Utils;
  * 
  */
 public class Matrix {
+	
 	public float[][] values;
 	int sizeX;
 	int sizeY;
@@ -48,45 +49,6 @@ public class Matrix {
 			}
 		}
 	}
-
-//	public Vec3 getTranslation() {
-//		Vec3 toReturn = new Vec3();
-		//
-		// toReturn.setX(values[ 3 ][ 0 ]);
-		// toReturn.setY(values[ 3 ][ 1 ]);
-		// toReturn.setZ(values[ 3 ][ 2 ]);
-//
-//		return toReturn;
-//	}
-
-//	public Vec3 getScale() {
-//		Vec3 toReturn = new Vec3();
-		//
-		// toReturn.setX(values[ 0 ][ 0 ]);
-		// toReturn.setY(values[ 1 ][ 1 ]);
-		// toReturn.setZ(values[ 2 ][ 2 ]);
-//
-//		return toReturn;
-//	}
-
-//	public void compose(Matrix transform) {
-//		init(transform);
-		// multiply( transform );
-//	}
-
-	// private void multiply(final Matrix transform) {
-	// Matrix copyThis = new Matrix( this );
-	//
-	// for ( int c = 0; c < 4; ++c ) {
-	// for ( int d = 0; d < 4; ++d ) {
-	// values[ c ][ d ] = 0;
-	// for ( int e = 0; e < 4; ++e ) {
-	// values[ c ][ d ] += transform.values[ c ][ e ] * copyThis.values[ e ][ d
-	// ];
-	// }
-	// }
-	// }
-	// }
 
 	private float[] getRawDataCopy() {
 		float[] toReturn = new float[16];
@@ -172,14 +134,4 @@ public class Matrix {
 
 		return true;
 	}
-
-	// public Vec3 getRotation(){
-	// Vec3 toReturn = new Vec3();
-	//
-	// toReturn.x = values[ 0 ][ 0 ];
-	// toReturn.y = values[ 1 ][ 1 ];
-	// toReturn.z = values[ 2 ][ 2 ];
-	//
-	// return toReturn;
-	// }
 }
