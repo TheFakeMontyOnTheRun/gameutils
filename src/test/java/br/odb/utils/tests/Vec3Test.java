@@ -150,6 +150,26 @@ public class Vec3Test {
 		Assert.assertTrue( v2.equals( v6 ) );
 	}
 	
+	@Test
+	public void testDotProduct() {
+		Vec3 v1 = new Vec3( 1, 0, 0);
+		Vec3 v2 = new Vec3( 0, 0, 1);
+		float dot = v1.dotProduct( v2 );
+		
+		Assert.assertEquals( 0.0f, dot );
+	}
+	
+	@Test
+	public void testCrossProduct() {
+		Vec3 v1 = new Vec3( 1, 0, 0);
+		Vec3 v2 = new Vec3( 0, 0, 1);
+		Vec3 v3 = v1.crossProduct( v2 );
+		Vec3 v4 = v1.crossProduct( v1 );
+		
+		Assert.assertEquals( new Vec3( 0, -1, 0), v3 );
+		Assert.assertEquals( new Vec3( 0, 0, 0), v4 );
+	}
+	
 	
 	@Test
 	public void testLength() {
