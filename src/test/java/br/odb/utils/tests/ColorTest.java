@@ -1,5 +1,5 @@
 package br.odb.utils.tests;
 
-public class ColorTests {
+public class ColorTest {
 
 }
