@@ -59,6 +59,9 @@ public class UtilsTest {
 	
 	@Test
 	public void testEqFloat() {
+		
+		Assert.assertTrue( Utils.eqFloat( 1.49f, 1.51f ) );
+		
 		Assert.assertTrue( Utils.eqFloat( 1.0f, 1.1f ) );
 		Assert.assertTrue( Utils.eqFloat( 1.0f, 1.49999f ) );
 		Assert.assertFalse( Utils.eqFloat( 1.0f, 1.5111f ) );

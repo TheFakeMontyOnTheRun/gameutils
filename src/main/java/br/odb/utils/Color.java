@@ -2,59 +2,84 @@ package br.odb.utils;
 
 import java.io.Serializable;
 
+/**
+ * Very agnostic (but somewhat biased towards OpenGL ES) colour class.
+ * 
+ * @author Daniel "Monty" Monteiro
+ */
 public class Color implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -3950308399852846336L;
-	
+
 	public int r;
 	public int g;
 	public int b;
 	public int a;
 
+	/**
+	 * @param argb
+	 *            a 32-bit integer with a ARGB colour encoded.
+	 */
 	public Color(int argb) {
-
-		a = argb >> 24 & 0xFF;
-		r = (argb & 0x00FF0000) >> 16;
-		g = (argb & 0x0000FF00) >> 8;
-		b = ((argb & 0x000000FF));
+		set( (argb & 0x00FF0000) >> 16, (argb & 0x0000FF00) >> 8, ((argb & 0x000000FF)), argb >> 24 & 0xFF);
 	}
 
-	// ------------------------------------------------------------------------------------------------------------
-
+	/**
+	 * 
+	 * @param r
+	 *            integer Red (0-255)
+	 * @param g
+	 *            integer Green (0-255)
+	 * @param b
+	 *            integer Blue (0-255)
+	 * @param a 
+	 * 			  integer opacity ( 0 = invisible, 255 = fully visible )
+	 */
 	public Color(int r, int g, int b, int a) {
-		this.r = (r);
-		this.g = (g);
-		this.b = (b);
-		this.a = (a);
+		set(r, g, b, a);
 	}
 
+	/**
+	 * Initialized the colour as a full-opaque black
+	 */
 	public Color() {
 		this(0, 0, 0, 255);
 	}
 
+	/**
+	 * Initialize the colour in full-opaque, with the parameters
+	 * 
+	 * @param r
+	 *            integer Red (0-255)
+	 * @param g
+	 *            integer Green (0-255)
+	 * @param b
+	 *            integer Blue (0-255)
+	 */
 	public Color(int r, int g, int b) {
 		this(r, g, b, 255);
 	}
 
+	/**
+	 * Copy constructor
+	 * 
+	 * @param c
+	 *            The original colour
+	 */
 	public Color(Color c) {
 		this(c.r, c.g, c.b, c.a);
 	}
 
 	public Color(float r, float g, float b) {
-		this.r = (int) (r * 255);
-		this.g = (int) (g * 255);
-		this.b = (int) (b * 255);
-		this.a = 255;
+		set( (int) (r * 256), (int) (g * 256), (int) (b * 256), 255 );
 	}
 
-	public Color(float r2, float g2, float b2, float a2) {
-		this(r2, g2, b2);
-		a = (int) (255 * a2);
+	public Color(float r, float g, float b, float a) {
+		set( (int) (r * 256), (int) (g * 256), (int) (b * 256), ( int )( a * 256 ) );
 	}
-
 
 	@Override
 	public String toString() {
@@ -137,14 +162,13 @@ public class Color implements Serializable {
 		color += b;
 
 		return color;
-
 	}
 
 	public void set(int r, int g, int b, int a) {
-		this.a = a;
-		this.r = r;
-		this.g = g;
-		this.b = b;
+		this.a = Utils.clamp( a, 0, 255 );
+		this.r = Utils.clamp( r, 0, 255 );
+		this.g = Utils.clamp( g, 0, 255 );
+		this.b = Utils.clamp( b, 0, 255 );
 	}
 
 	public void set(int r, int g, int b) {
@@ -172,17 +196,14 @@ public class Color implements Serializable {
 	}
 
 	public void set(Color color) {
-
 		set(color.r, color.g, color.b, color.a);
 	}
 
 	public String getExplicitRGBColor() {
-
 		return "rgb( " + r + ", " + g + ", " + b + " )";
 	}
 
 	public void multiply(float factor) {
-
 		r = (int) (r * factor);
 		g = (int) (g * factor);
 		b = (int) (b * factor);

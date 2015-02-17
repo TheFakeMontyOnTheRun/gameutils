@@ -4,22 +4,36 @@
 package br.odb.utils;
 
 /**
- * @author monty
- * 
+ * Utility methods that don't belong anywhere else.
+ * @author Daniel "Monty" Monteiro 
  */
 public class Utils {
 	
 	public static final int SECOND_IN_MILISSECONDS = 1000;
 	public static final int MINUTE_IN_MILISSECONDS = 60 * SECOND_IN_MILISSECONDS;
 
+	
+	/**
+	 * There is no point in creating a object from this.
+	 */
+	public Utils() {
+		
+	}
+	
+	/**
+	 * @return true if the distance between the two numbers is less then 0.5, false otherwise
+	 */
 	public static boolean eqFloat(float f1, float f2) {
-		int int1 = (int) Math.round(f1);
-		int int2 = (int) Math.round(f2);
-		return int1 == int2;
+		return Math.abs( f1 - f2 ) < 0.5f;
 	}
 
-
-
+	/**
+	 * Restrains a number in a interval
+	 * @param n the original number
+	 * @param min the minimum value of the interval
+	 * @param max the maximum value of the interval
+	 * @return a valid number inside the said interval. If min > max, then the interval will be reversed
+	 */
 	public static int clamp(int n, int min, int max) {
 
 		if (min > max)
@@ -34,6 +48,13 @@ public class Utils {
 		return n;
 	}
 
+	/**
+	 * Restrains a number in a interval
+	 * @param n the original number
+	 * @param min the minimum value of the interval
+	 * @param max the maximum value of the interval
+	 * @return a valid number inside the said interval. If min > max, then the interval will be reversed
+	 */
 	public static float clamp(float n, float min, float max) {
 
 		if (min > max)
