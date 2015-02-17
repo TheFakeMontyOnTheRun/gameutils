@@ -3,7 +3,8 @@ package br.odb.utils;
 import java.io.Serializable;
 
 /**
- * Very agnostic (but somewhat biased towards OpenGL ES) colour class.
+ * Very agnostic (but somewhat biased towards OpenGL ES) colour class. Most operations will clamp channel values 
+ * between 0 and 255, but consistency can't be guaranteed with direct access
  * 
  * @author Daniel "Monty" Monteiro
  */
@@ -204,8 +205,6 @@ public class Color implements Serializable {
 	}
 
 	public void multiply(float factor) {
-		r = (int) (r * factor);
-		g = (int) (g * factor);
-		b = (int) (b * factor);
+		set( (int) (r * factor), (int) (g * factor), (int) (b * factor), (int) (a * factor) );
 	}
 }
