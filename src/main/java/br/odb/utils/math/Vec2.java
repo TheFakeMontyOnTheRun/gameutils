@@ -11,21 +11,12 @@ public class Vec2 implements Serializable {
 	
 	public float x;
 	public float y;
-	public int space;
 
 	// ------------------------------------------------------------------------------------------------------------
 	public Vec2() {
 		x = 0;
 		y = 0;
 	}
-
-	// ------------------------------------------------------------------------------------------------------------
-	public Vec2(int i, int i0) {
-
-		x = i;
-		y = i0;
-	}
-
 	// ------------------------------------------------------------------------------------------------------------
 	public Vec2(float d, float d0) {
 		x = d;
@@ -35,7 +26,6 @@ public class Vec2 implements Serializable {
 	public Vec2(Vec2 other) {
 		x = other.x;
 		y = other.y;
-		space = other.space;
 	}
 
 	// ------------------------------------------------------------------------------------------------------------
@@ -54,47 +44,28 @@ public class Vec2 implements Serializable {
 		return new Vec2(x - initialPosition.x, y - initialPosition.y);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + space;
 		result = prime * result + Float.floatToIntBits(x);
 		result = prime * result + Float.floatToIntBits(y);
 		return result;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj) {
+		if (this == obj)
 			return true;
-		}
-		if (obj == null) {
+		if (obj == null)
 			return false;
-		}
-		if (getClass() != obj.getClass()) {
+		if (getClass() != obj.getClass())
 			return false;
-		}
 		Vec2 other = (Vec2) obj;
-		if (space != other.space) {
+		if (Float.floatToIntBits(x) != Float.floatToIntBits(other.x))
 			return false;
-		}
-		if (Float.floatToIntBits(x) != Float.floatToIntBits(other.x)) {
+		if (Float.floatToIntBits(y) != Float.floatToIntBits(other.y))
 			return false;
-		}
-		if (Float.floatToIntBits(y) != Float.floatToIntBits(other.y)) {
-			return false;
-		}
 		return true;
 	}
 
@@ -127,13 +98,12 @@ public class Vec2 implements Serializable {
 
 	public void set(Vec2 vec) {
 		
-		if ( Float.isNaN( vec.x ) || Float.isNaN( vec.y ) ) {
+		if ( vec == null || !vec.isValid() ) {
 			return;
 		}
 		
 		this.x = vec.x;
 		this.y = vec.y;
-		this.space = vec.space;
 	}
 
 	public void set(float x, float y) {
@@ -155,6 +125,11 @@ public class Vec2 implements Serializable {
 	}
 
 	public void addTo(Vec2 v) {
+		
+		if ( v == null || !v.isValid() ) {
+			return;
+		}
+		
 		this.x += v.x;
 		this.y += v.y;
 	}
@@ -164,10 +139,10 @@ public class Vec2 implements Serializable {
 		return scaled(-1.0f);
 	}
 
-	public Vec2 scaled(float width, float height) {
+	public Vec2 scaled(float sx, float sy) {
 		Vec2 toReturn = new Vec2( this );
-		toReturn.x *= width;
-		toReturn.y *= height;
+		toReturn.x *= sx;
+		toReturn.y *= sy;
 		return toReturn;
 	}
 }

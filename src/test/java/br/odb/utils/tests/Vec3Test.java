@@ -26,7 +26,23 @@ public class Vec3Test {
 	}
 	
 	@Test
-	public void isValid() {
+	public void testSet() {
+		Vec3 v = new Vec3( 1.0f, 2.0f, 3.0f );
+		Assert.assertEquals( v.x, 1.0f, 0.1f );
+		Assert.assertEquals( v.y, 2.0f, 0.1f );
+		Assert.assertEquals( v.z, 3.0f, 0.1f );
+
+		v.set( null );
+		
+		Assert.assertEquals( v.x, 1.0f, 0.1f );
+		Assert.assertEquals( v.y, 2.0f, 0.1f );
+		Assert.assertEquals( v.z, 3.0f, 0.1f );
+		
+	}
+			
+	
+	@Test
+	public void testIsValid() {
 		Vec3 v;
 		v= new Vec3( Float.POSITIVE_INFINITY, 0.0f, 0.0f );
 		Assert.assertFalse( v.isValid() );

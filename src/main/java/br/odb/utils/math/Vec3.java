@@ -150,6 +150,11 @@ public class Vec3 implements Serializable {
 	}
 
 	public void set(Vec3 v) {
+		
+		if ( v == null || !v.isValid() ) {
+			return;
+		}
+		
 		set(v.x, v.y, v.z);
 	}
 
