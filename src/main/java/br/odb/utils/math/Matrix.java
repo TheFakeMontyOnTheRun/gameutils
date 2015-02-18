@@ -109,8 +109,9 @@ public class Matrix {
 			for (int y = 0; y < sizeY; ++y) {
 
 				if (x == y) {
-					if (!Utils.eqFloat(1.0f, values[y][x]))
+					if ( Math.abs( values[ y ][ x ] - 1.0f ) > 0.1f ) {						
 						return false;
+					}
 				} else {
 					if (!Utils.eqFloat(0.0f, values[y][x]))
 						return false;

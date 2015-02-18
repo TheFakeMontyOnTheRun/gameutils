@@ -74,10 +74,23 @@ public class Color implements Serializable {
 		this(c.r, c.g, c.b, c.a);
 	}
 
+	/**
+	 * Float constructor
+	 * @param r (0.0-1.0) Red
+	 * @param g (0.0-1.0) Green
+	 * @param b (0.0-1.0) Blue
+	 */
 	public Color(float r, float g, float b) {
 		set( (int) (r * 256), (int) (g * 256), (int) (b * 256), 255 );
 	}
 
+	/**
+	 * Float constructor
+	 * @param r (0.0-1.0) Red
+	 * @param g (0.0-1.0) Green
+	 * @param b (0.0-1.0) Blue
+	 * @param a (0.0-1.0) Alpha
+	 */	
 	public Color(float r, float g, float b, float a) {
 		set( (int) (r * 256), (int) (g * 256), (int) (b * 256), ( int )( a * 256 ) );
 	}
