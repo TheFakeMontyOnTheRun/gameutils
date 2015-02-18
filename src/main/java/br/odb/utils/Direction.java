@@ -20,6 +20,10 @@ public enum Direction {
 
 	public static Direction getDirectionForPrettyName(String prettyName) {
 
+		if ( prettyName == null || prettyName.length() == 0 ) {
+			return null;
+		}
+		
 		for (Direction d : Direction.values()) {
 			if (d.prettyName.toUpperCase().equals(prettyName.toUpperCase())) {
 				return d;
@@ -31,6 +35,10 @@ public enum Direction {
 
 	public static Direction getDirectionForSimpleName(String simpleName) {
 
+		if ( simpleName == null || simpleName.length() == 0 ) {
+			return null;
+		}
+		
 		for (Direction d : Direction.values()) {
 			if (d.simpleName.equals(simpleName.toUpperCase())) {
 				return d;
@@ -42,6 +50,10 @@ public enum Direction {
 
 	public static Direction getOppositeDirection(Direction d) {
 
+		if ( d == null ) {
+			return null;
+		}
+		
 		switch (d) {
 
 		case N:
@@ -55,9 +67,8 @@ public enum Direction {
 		case FLOOR:
 			return CEILING;
 		case CEILING:
+		default:
 			return FLOOR;
 		}
-		
-		return FLOOR;
 	}
 }

@@ -7,7 +7,7 @@ public class ScheduledEvent implements Runnable {
 	private Runnable runnable;
 	public boolean wentOff;
 
-	protected ScheduledEvent(Runnable runnable, long time) {
+	public ScheduledEvent(Runnable runnable, long time) {
 		this.runnable = runnable;
 		this.timeToGoOff = time;
 	}
