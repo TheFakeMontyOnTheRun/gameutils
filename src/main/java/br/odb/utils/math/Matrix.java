@@ -51,12 +51,12 @@ public class Matrix {
 	}
 
 	private float[] getRawDataCopy() {
-		float[] toReturn = new float[16];
+		float[] toReturn = new float[ sizeX * sizeY ];
 
 		int used = 0;
 
-		for (int c = 0; c < 4; ++c) {
-			for (int d = 0; d < 4; ++d) {
+		for (int c = 0; c < sizeY; ++c) {
+			for (int d = 0; d < sizeX; ++d) {
 				toReturn[used] = values[c][d];
 				++used;
 			}
@@ -65,8 +65,8 @@ public class Matrix {
 		return toReturn;
 	}
 
-	private void init(Matrix transform) {
-		init(4, 4, transform.getRawDataCopy());
+	private void init(Matrix m) {
+		init( m.sizeX, m.sizeY, m.getRawDataCopy());
 	}
 
 	public static Matrix makeIdentity(int i) {
@@ -133,5 +133,13 @@ public class Matrix {
 		}
 
 		return true;
+	}
+
+	public float get( int x, int y ) {
+		return values[ y ][ x ];
+	}
+	
+	public void set(int x, int y, float f) {
+		values[ y ][ x ] = f;		
 	}
 }
