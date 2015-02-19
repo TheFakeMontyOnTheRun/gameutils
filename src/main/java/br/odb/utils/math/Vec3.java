@@ -59,13 +59,11 @@ public class Vec3 implements Serializable {
 	@Override
 	public String toString() {
 		String toReturn = "";
-		toReturn += "( ";
 		toReturn += x;
-		toReturn += ", ";
+		toReturn += " ";
 		toReturn += y;
-		toReturn += ", ";
+		toReturn += " ";
 		toReturn += z;
-		toReturn += " )";
 		return toReturn;
 	}
 

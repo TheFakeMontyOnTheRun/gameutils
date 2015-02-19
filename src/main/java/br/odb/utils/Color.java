@@ -19,7 +19,15 @@ public class Color implements Serializable {
 	public int g;
 	public int b;
 	public int a;
-
+	
+	/**
+	 * 
+	 * @return as float the channels as a, r, b, a
+	 */
+	public float[] getFloatData() {
+		return new float[] { a / 255.0f, r / 255.0f, g / 255.0f , b / 255.0f };
+	}
+	
 	/**
 	 * @param argb
 	 *            a 32-bit integer with a ARGB colour encoded.
@@ -210,6 +218,11 @@ public class Color implements Serializable {
 	}
 
 	public void set(Color color) {
+		
+		if ( color == null ) {
+			return;
+		}
+		
 		set(color.r, color.g, color.b, color.a);
 	}
 

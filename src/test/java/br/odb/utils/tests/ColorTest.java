@@ -22,6 +22,18 @@ public class ColorTest {
 
 	}
 	
+	@Test
+	public void testFloatData() {
+		
+		Color colour = new Color( 64, 32, 16, 8 );
+		float[] data = colour.getFloatData();
+		
+		Assert.assertEquals( 64 / 255.0f, data[ 1 ], 0.001f );
+		Assert.assertEquals( 32 / 255.0f, data[ 2 ], 0.001f );
+		Assert.assertEquals( 16 / 255.0f, data[ 3 ], 0.001f );
+		Assert.assertEquals(  8 / 255.0f, data[ 0 ], 0.001f );
+	}
+	
 	
 	@Test
 	public void testGetARGB() {
@@ -45,6 +57,12 @@ public class ColorTest {
 		
 		c2.set( c1 );
 
+		Assert.assertEquals( 255, c2.r );
+		Assert.assertEquals( 128, c2.g );
+		Assert.assertEquals( 64, c2.b );
+		Assert.assertEquals( 255, c2.a );
+		
+		c2.set( null );
 		Assert.assertEquals( 255, c2.r );
 		Assert.assertEquals( 128, c2.g );
 		Assert.assertEquals( 64, c2.b );
