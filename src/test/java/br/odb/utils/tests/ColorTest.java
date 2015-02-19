@@ -28,10 +28,10 @@ public class ColorTest {
 		Color colour = new Color( 64, 32, 16, 8 );
 		float[] data = colour.getFloatData();
 		
-		Assert.assertEquals( 64 / 255.0f, data[ 1 ], 0.001f );
-		Assert.assertEquals( 32 / 255.0f, data[ 2 ], 0.001f );
-		Assert.assertEquals( 16 / 255.0f, data[ 3 ], 0.001f );
-		Assert.assertEquals(  8 / 255.0f, data[ 0 ], 0.001f );
+		Assert.assertEquals( 64 / 255.0f, data[ 0 ], 0.001f );
+		Assert.assertEquals( 32 / 255.0f, data[ 1 ], 0.001f );
+		Assert.assertEquals( 16 / 255.0f, data[ 2 ], 0.001f );
+		Assert.assertEquals(  8 / 255.0f, data[ 3 ], 0.001f );
 	}
 	
 	

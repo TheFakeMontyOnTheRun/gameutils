@@ -25,7 +25,7 @@ public class Color implements Serializable {
 	 * @return as float the channels as a, r, b, a
 	 */
 	public float[] getFloatData() {
-		return new float[] { a / 255.0f, r / 255.0f, g / 255.0f , b / 255.0f };
+		return new float[] { r / 255.0f, g / 255.0f, b / 255.0f , a / 255.0f };
 	}
 	
 	/**
