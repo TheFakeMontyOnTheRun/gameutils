@@ -21,23 +21,42 @@ public class Rect {
 		set( x0, y0, dx, dy );
 	}
 	
+	
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (p0.hashCode());
+		result = prime * result + (p1.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
-		
-		if ( !( obj instanceof Rect ) ) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
 			return false;
 		}
-		
-		if ( obj == this ) {
-			return true;
+		if (!(obj instanceof Rect)) {
+			return false;
 		}
-		
-		Rect rect = (Rect) obj;
-		
-		if ( p1.equals( rect.p1 ) && ( p0.equals( rect.p0 ) ) ) {
-			return true;
+		Rect other = (Rect) obj;
+		if (!p0.equals(other.p0)) {
+			return false;
 		}
-		return false;
+		if (!p1.equals(other.p1)) {
+			return false;
+		}
+		return true;
 	}
 
 	public Rect(Rect rect) {
