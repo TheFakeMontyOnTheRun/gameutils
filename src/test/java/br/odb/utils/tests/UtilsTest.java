@@ -62,13 +62,13 @@ public class UtilsTest {
 		
 		Assert.assertTrue( Utils.eqFloat( 1.49f, 1.51f ) );
 		
-		Assert.assertTrue( Utils.eqFloat( 1.0f, 1.1f ) );
-		Assert.assertTrue( Utils.eqFloat( 1.0f, 1.49999f ) );
+		Assert.assertFalse( Utils.eqFloat( 1.0f, 1.1f ) );
+		Assert.assertFalse( Utils.eqFloat( 1.0f, 1.49999f ) );
 		Assert.assertFalse( Utils.eqFloat( 1.0f, 1.5111f ) );
 		Assert.assertFalse( Utils.eqFloat( 1.0f, 2.0f ) );
 		
-		Assert.assertTrue( Utils.eqFloat( 1.1f, 1.0f ) );
-		Assert.assertTrue( Utils.eqFloat( 1.49999f, 1.0f ) );
+		Assert.assertFalse( Utils.eqFloat( 1.1f, 1.0f ) );
+		Assert.assertTrue( Utils.eqFloat( 1.09999f, 1.0f ) );
 		Assert.assertFalse( Utils.eqFloat( 1.5111f, 1.0f ) );
 		Assert.assertFalse( Utils.eqFloat( 2.0f, 1.0f ) );
 

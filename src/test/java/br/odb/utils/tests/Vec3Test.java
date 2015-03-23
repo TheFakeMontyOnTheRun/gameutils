@@ -142,7 +142,12 @@ public class Vec3Test {
 		Vec3 v5 = new Vec3( 2, 1, 1 );
 		Vec3 v6 = new Vec3( 1, 1, 1 );
 		
+		Vec3 v6b = new Vec3( 1.2f, 1.2f, 1.2f );
+		
 		String nonV = "not a vector";
+		
+		Assert.assertFalse( v6.equals( v6b ) );
+		
 		
 		Assert.assertFalse( v.equals( v2 ) );
 		Assert.assertFalse( v2.equals( v ) );
@@ -164,6 +169,14 @@ public class Vec3Test {
 		v6.set( v2 );
 		
 		Assert.assertTrue( v2.equals( v6 ) );
+		
+		Vec3 v7 = new Vec3( Float.NaN, Float.NaN, 5.0f );
+		Vec3 v8 = new Vec3( Float.NaN, Float.NaN, 5.0f );
+		
+		Assert.assertEquals( v7, v7 );
+		Assert.assertEquals( v8, v8 );
+		Assert.assertEquals( v7, v8 );
+		
 	}
 	
 	@Test
