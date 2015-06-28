@@ -25,7 +25,7 @@ public class MatrixTest {
 		Matrix m = new Matrix( 2, 2 );
 		for ( int x = 0; x < 2; ++x ) {
 			for ( int y = 0; y < 2; ++y ) {
-				Assert.assertEquals( 0.0f, m.values[ y ][ x ], 0.001f );
+				Assert.assertEquals( 0.0f, m.values[  ( y * m.sizeX ) + x  ], 0.001f );
 			}
 		}
 	}
@@ -36,7 +36,7 @@ public class MatrixTest {
 		
 		for ( int x = 0; x < 3; ++x ) {
 			for ( int y = 0; y < 3; ++y ) {
-				Assert.assertEquals( ( x == y) ? 1.0f : 0.0f, m.values[ y ][ x ], 0.001f );
+				Assert.assertEquals( ( x == y) ? 1.0f : 0.0f, m.values[  ( y * m.sizeX ) + x  ], 0.001f );
 			}
 		}
 	}

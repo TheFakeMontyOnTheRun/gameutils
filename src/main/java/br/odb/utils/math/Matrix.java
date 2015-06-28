@@ -11,40 +11,42 @@ import br.odb.utils.Utils;
  */
 public class Matrix {
 	
-	public float[][] values;
-	int sizeX;
-	int sizeY;
+	public float[] values;
+	public final int sizeX;
+	public final int sizeY;
 
 	public Matrix(int dx, int dy, float[] rawData) {
-		init(dx, dy, rawData);
+		sizeX = dx;
+		sizeY = dy;
+		initWithRawData(rawData);
 	}
 
 	public Matrix(Matrix matrix) {
+		sizeX = matrix.sizeX;
+		sizeY = matrix.sizeY;
 		init(matrix);
 	}
 
-	public Matrix(int i, int j) {
-		init(i, j, null);
-	}
-
-	private void init(int dx, int dy, float[] rawData) {
-
-		int head = 0;
+	public Matrix(int dx, int dy) {
 		sizeX = dx;
 		sizeY = dy;
-		values = new float[dy][];
+		initWithRawData(null);
+	}
 
-		for (int c = 0; c < dy; ++c) {
+	private void initWithRawData( float[] rawData) {
 
-			values[c] = new float[dx];
+		int head = 0;
+		values = new float[ sizeX * sizeY ];
 
-			for (int d = 0; d < dx; ++d) {
+		for (int c = 0; c <  sizeY; ++c) {
+
+			for (int d = 0; d < sizeX; ++d) {
 
 				if (rawData != null && head < rawData.length) {
-					values[c][d] = rawData[head];
+					values[ ( c * sizeX ) + d ] = rawData[head];
 					++head;
 				} else {
-					values[c][d] = 0.0f;
+					values[ ( c * sizeX ) + d ] = 0.0f;
 				}
 			}
 		}
@@ -57,7 +59,7 @@ public class Matrix {
 
 		for (int c = 0; c < sizeY; ++c) {
 			for (int d = 0; d < sizeX; ++d) {
-				toReturn[used] = values[c][d];
+				toReturn[used] = values[ ( c * sizeX ) + d ];
 				++used;
 			}
 		}
@@ -66,20 +68,29 @@ public class Matrix {
 	}
 
 	private void init(Matrix m) {
-		init( m.sizeX, m.sizeY, m.getRawDataCopy());
+		initWithRawData( m.getRawDataCopy());
+	}
+	
+	
+	public void setAsIdentity() {
+		for (int x = 0; x < sizeX; ++x) {
+			for (int y = 0; y < sizeY; ++y) {
+				this.values[(sizeX * y) + x] = (x == y) ? 1.0f : 0.0f;
+			}
+		}
 	}
 
-	public static Matrix makeIdentity(int i) {
+	public static Matrix makeIdentity(int size) {
 
-		float[] rawData = new float[i * i];
+		float[] rawData = new float[size * size];
 
-		for (int x = 0; x < i; ++x) {
-			for (int y = 0; y < i; ++y) {
-				rawData[(i * y) + x] = (x == y) ? 1.0f : 0.0f;
+		for (int x = 0; x < size; ++x) {
+			for (int y = 0; y < size; ++y) {
+				rawData[(size * y) + x] = (x == y) ? 1.0f : 0.0f;
 			}
 		}
 
-		Matrix m = new Matrix(i, i, rawData);
+		Matrix m = new Matrix(size, size, rawData);
 		return m;
 	}
 
@@ -109,11 +120,11 @@ public class Matrix {
 			for (int y = 0; y < sizeY; ++y) {
 
 				if (x == y) {
-					if ( Math.abs( values[ y ][ x ] - 1.0f ) > 0.1f ) {						
+					if ( Math.abs( values[ ( y * sizeX ) + x  ] - 1.0f ) > 0.1f ) {						
 						return false;
 					}
 				} else {
-					if (!Utils.eqFloat(0.0f, values[y][x]))
+					if (!Utils.eqFloat(0.0f, values[ ( y * sizeX ) + x ]))
 						return false;
 				}
 			}
@@ -128,7 +139,7 @@ public class Matrix {
 
 			for (int y = 0; y < sizeY; ++y) {
 
-				if (!Utils.eqFloat(0.0f, values[y][x]))
+				if (!Utils.eqFloat(0.0f, values[ ( y * sizeX ) + x ]))
 					return false;
 			}
 		}
@@ -137,10 +148,10 @@ public class Matrix {
 	}
 
 	public float get( int x, int y ) {
-		return values[ y ][ x ];
+		return values[ ( y * sizeX ) + x ];
 	}
 	
 	public void set(int x, int y, float f) {
-		values[ y ][ x ] = f;		
+		values[ ( y * sizeX ) + x ] = f;		
 	}
 }
