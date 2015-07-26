@@ -60,7 +60,7 @@ public class UtilsTest {
 	@Test
 	public void testEqFloat() {
 		
-		Assert.assertTrue( Utils.eqFloat( 1.49f, 1.51f ) );
+		Assert.assertTrue( Utils.eqFloat( 1.049f, 1.051f ) );
 		
 		Assert.assertFalse( Utils.eqFloat( 1.0f, 1.1f ) );
 		Assert.assertFalse( Utils.eqFloat( 1.0f, 1.49999f ) );
@@ -68,7 +68,7 @@ public class UtilsTest {
 		Assert.assertFalse( Utils.eqFloat( 1.0f, 2.0f ) );
 		
 		Assert.assertFalse( Utils.eqFloat( 1.1f, 1.0f ) );
-		Assert.assertTrue( Utils.eqFloat( 1.09999f, 1.0f ) );
+		Assert.assertTrue( Utils.eqFloat( 1.09999f, 1.09f ) );
 		Assert.assertFalse( Utils.eqFloat( 1.5111f, 1.0f ) );
 		Assert.assertFalse( Utils.eqFloat( 2.0f, 1.0f ) );
 

@@ -21,24 +21,12 @@ public class Utils {
 	}
 	
 	/**
-	 * @return true if the distance between the two numbers is less then 0.5, false otherwise
+	 * @return true if the distance between the two numbers is less then 0.1, false otherwise
 	 */
 	public static boolean eqFloat(float f1, float f2) {
 		
 		if ( Float.isNaN( f1 ) ) {
 			return Float.isNaN( f2 );
-		}
-			
-		if ( Float.isNaN( f2 ) ) {
-			return Float.isNaN( f1 );
-		}
-		
-		if ( Float.isInfinite( f1 ) ) {
-			return Float.isInfinite( f2 );
-		}
-
-		if ( Float.isInfinite( f2 ) ) {
-			return Float.isInfinite( f1 );
 		}
 		
 		return Math.abs( f1 - f2 ) < 0.1f;
