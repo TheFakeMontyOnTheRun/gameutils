@@ -1,5 +1,8 @@
 package br.odb.utils.tests;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -56,6 +59,16 @@ public class UtilsTest {
 		new Utils();
 	}
 	
+	@Test
+	public void testReadFully() {
+		String data = "A quick brown fox jumps of a lazy dog";
+		try {
+			Assert.assertEquals( data, Utils.readFully( new ByteArrayInputStream( data.getBytes()), "utf-8" ) );
+			Assert.assertNotSame( data, Utils.readFully( new ByteArrayInputStream( data.replace(' ', '-').getBytes()), "utf-8" ) );
+		} catch (IOException e) {
+			Assert.fail( e.getLocalizedMessage() );
+		}  
+	}
 	
 	@Test
 	public void testEqFloat() {

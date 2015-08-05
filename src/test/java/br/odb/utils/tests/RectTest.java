@@ -20,6 +20,7 @@ public class RectTest {
 		
 		Assert.assertTrue( rect1.equals( rect1 ) );
 		Assert.assertTrue( rect1.equals( rect2 ) );
+		Assert.assertEquals( rect1.hashCode(), rect2.hashCode() );
 		Assert.assertFalse( rect1.equals( anotherKind ) );
 		Assert.assertFalse( rect1.equals( null ) );
 		
@@ -27,17 +28,19 @@ public class RectTest {
 		rect2.p1.set( rect1.p1 );
 		rect2.p0.set( 0.5f, 0.5f );
 		Assert.assertFalse( rect1.equals( rect2 ) );
-
+		Assert.assertNotSame( rect1.hashCode(), rect2.hashCode() );
 		rect2.p0.set( rect1.p0 );
 		rect2.p1.set( rect1.p1 );
 		rect2.p1.set( 0.5f, 0.5f );
 		Assert.assertFalse( rect1.equals( rect2 ) );
-
+		Assert.assertNotSame( rect1.hashCode(), rect2.hashCode() );
+		
 		rect2.p0.set( rect1.p0 );
 		rect2.p1.set( rect1.p1 );
 		rect2.p1.set( 0.5f, 0.5f );
 		rect2.p1.set( 2.5f, 2.5f );
-		Assert.assertFalse( rect1.equals( rect2 ) );	
+		Assert.assertFalse( rect1.equals( rect2 ) );
+		Assert.assertNotSame( rect1.hashCode(), rect2.hashCode() );
 	}
 	
 	@Test

@@ -76,6 +76,14 @@ public class MatrixTest {
 		m.set( 1, 0, 5.0f );
 		
 		Assert.assertFalse( m.isIdentity() );
+		
+		m.setAsIdentity();
+		
+		Assert.assertTrue( m.isIdentity() );
+		
+		m.set( 1, 1, 5.0f );
+		
+		Assert.assertFalse( m.isIdentity() );		
 	}
 
 	@Test
