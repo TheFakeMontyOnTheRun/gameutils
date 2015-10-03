@@ -104,7 +104,7 @@ public class Vec3 implements Serializable {
 
 	public void normalize() {
 
-		float oneOverLen = 1 / length();
+		float oneOverLen = 1.0f / length();
 		scale(oneOverLen);
 	}
 
