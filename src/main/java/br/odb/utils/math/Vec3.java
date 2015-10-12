@@ -197,4 +197,17 @@ public class Vec3 implements Serializable {
 		return !(Float.isInfinite(x) || Float.isNaN(x) || Float.isInfinite(y)
 				|| Float.isNaN(y) || Float.isInfinite(z) || Float.isNaN(z));
 	}
+	
+	public boolean isZero() {
+		//Yeah, I know it's a mistake to compare floats like this - but in my defence, even the slightest fraction means it's not zero.
+		return x == 0.0f && y == 0.0f && z == 0.0f;
+	}
+	
+	public Vec3 scaled( float t ) {
+		
+		Vec3 toReturn = new Vec3( this );
+		toReturn.scale( t );
+		
+		return toReturn;
+	}
 }
