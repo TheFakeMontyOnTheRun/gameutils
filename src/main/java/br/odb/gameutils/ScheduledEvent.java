@@ -1,4 +1,4 @@
-package br.odb.utils;
+package br.odb.gameutils;
 
 
 public class ScheduledEvent implements Runnable {

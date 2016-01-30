@@ -1,10 +1,10 @@
-package br.odb.utils.tests;
+package br.odb.gameutils.tests;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import br.odb.utils.EventManager;
-import br.odb.utils.ScheduledEvent;
+import br.odb.gameutils.EventManager;
+import br.odb.gameutils.ScheduledEvent;
 
 public class EventManagerTest {
 

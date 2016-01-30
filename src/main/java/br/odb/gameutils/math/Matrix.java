@@ -1,9 +1,9 @@
 /**
  * 
  */
-package br.odb.utils.math;
+package br.odb.gameutils.math;
 
-import br.odb.utils.Utils;
+import br.odb.gameutils.Utils;
 
 /**
  * @author monty

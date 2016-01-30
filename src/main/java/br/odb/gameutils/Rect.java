@@ -1,9 +1,9 @@
 /**
  * 
  */
-package br.odb.utils;
+package br.odb.gameutils;
 
-import br.odb.utils.math.Vec2;
+import br.odb.gameutils.math.Vec2;
 
 /**
  * @author monty

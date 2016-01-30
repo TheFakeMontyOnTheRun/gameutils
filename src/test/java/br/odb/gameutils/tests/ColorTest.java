@@ -1,9 +1,8 @@
-package br.odb.utils.tests;
+package br.odb.gameutils.tests;
 
+import br.odb.gameutils.Color;
 import org.junit.Assert;
 import org.junit.Test;
-
-import br.odb.utils.Color;
 
 public class ColorTest {
 

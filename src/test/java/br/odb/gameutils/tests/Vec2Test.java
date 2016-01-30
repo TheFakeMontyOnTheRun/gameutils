@@ -1,13 +1,13 @@
 /**
  * 
  */
-package br.odb.utils.tests;
+package br.odb.gameutils.tests;
 
 import junit.framework.Assert;
 
 import org.junit.Test;
 
-import br.odb.utils.math.Vec2;
+import br.odb.gameutils.math.Vec2;
 
 /**
  * @author monty
@@ -16,7 +16,7 @@ import br.odb.utils.math.Vec2;
 public class Vec2Test {
 
 	/**
-	 * Test method for {@link br.odb.utils.math.Vec2#hashCode()}.
+	 * Test method for {@link br.odb.gameutils.math.Vec2#hashCode()}.
 	 */
 	@Test
 	public void testHashCode() {
@@ -27,7 +27,7 @@ public class Vec2Test {
 	}
 
 	/**
-	 * Test method for {@link br.odb.utils.math.Vec2#Vec2()}.
+	 * Test method for {@link br.odb.gameutils.math.Vec2#Vec2()}.
 	 */
 	@Test
 	public void testVec2() {
@@ -38,7 +38,7 @@ public class Vec2Test {
 	}
 
 	/**
-	 * Test method for {@link br.odb.utils.math.Vec2#Vec2(float, float)}.
+	 * Test method for {@link br.odb.gameutils.math.Vec2#Vec2(float, float)}.
 	 */
 	@Test
 	public void testVec2FloatFloat() {
@@ -49,7 +49,7 @@ public class Vec2Test {
 	}
 
 	/**
-	 * Test method for {@link br.odb.utils.math.Vec2#Vec2(br.odb.utils.math.Vec2)}.
+	 * Test method for {@link br.odb.gameutils.math.Vec2#Vec2(br.odb.gameutils.math.Vec2)}.
 	 */
 	@Test
 	public void testVec2Vec2() {
@@ -60,7 +60,7 @@ public class Vec2Test {
 	}
 
 	/**
-	 * Test method for {@link br.odb.utils.math.Vec2#add(br.odb.utils.math.Vec2)}.
+	 * Test method for {@link br.odb.gameutils.math.Vec2#add(br.odb.gameutils.math.Vec2)}.
 	 */
 	@Test
 	public void testAdd() {
@@ -71,7 +71,7 @@ public class Vec2Test {
 	}
 
 	/**
-	 * Test method for {@link br.odb.utils.math.Vec2#toString()}.
+	 * Test method for {@link br.odb.gameutils.math.Vec2#toString()}.
 	 */
 	@Test
 	public void testToString() {
@@ -81,7 +81,7 @@ public class Vec2Test {
 	}
 
 	/**
-	 * Test method for {@link br.odb.utils.math.Vec2#sub(br.odb.utils.math.Vec2)}.
+	 * Test method for {@link br.odb.gameutils.math.Vec2#sub(br.odb.gameutils.math.Vec2)}.
 	 */
 	@Test
 	public void testSub() {
@@ -92,7 +92,7 @@ public class Vec2Test {
 	}
 
 	/**
-	 * Test method for {@link br.odb.utils.math.Vec2#equals(java.lang.Object)}.
+	 * Test method for {@link br.odb.gameutils.math.Vec2#equals(java.lang.Object)}.
 	 */
 	@Test
 	public void testEqualsObject() {
@@ -115,7 +115,7 @@ public class Vec2Test {
 	}
 
 	/**
-	 * Test method for {@link br.odb.utils.math.Vec2#invalidate()}.
+	 * Test method for {@link br.odb.gameutils.math.Vec2#invalidate()}.
 	 */
 	@Test
 	public void testInvalidate() {
@@ -127,7 +127,7 @@ public class Vec2Test {
 	}
 
 	/**
-	 * Test method for {@link br.odb.utils.math.Vec2#length()}.
+	 * Test method for {@link br.odb.gameutils.math.Vec2#length()}.
 	 */
 	@Test
 	public void testLength() {
@@ -140,7 +140,7 @@ public class Vec2Test {
 	}
 
 	/**
-	 * Test method for {@link br.odb.utils.math.Vec2#normalize()}.
+	 * Test method for {@link br.odb.gameutils.math.Vec2#normalize()}.
 	 */
 	@Test
 	public void testNormalize() {
@@ -154,7 +154,7 @@ public class Vec2Test {
 	}
 
 	/**
-	 * Test method for {@link br.odb.utils.math.Vec2#normalized()}.
+	 * Test method for {@link br.odb.gameutils.math.Vec2#normalized()}.
 	 */
 	@Test
 	public void testNormalized() {
@@ -166,7 +166,7 @@ public class Vec2Test {
 	}
 
 	/**
-	 * Test method for {@link br.odb.utils.math.Vec2#isValid()}.
+	 * Test method for {@link br.odb.gameutils.math.Vec2#isValid()}.
 	 */
 	@Test
 	public void testIsValid() {
@@ -198,7 +198,7 @@ public class Vec2Test {
 	}
 
 	/**
-	 * Test method for {@link br.odb.utils.math.Vec2#set(br.odb.utils.math.Vec2)}.
+	 * Test method for {@link br.odb.gameutils.math.Vec2#set(br.odb.gameutils.math.Vec2)}.
 	 */
 	@Test
 	public void testSetVec2() {
@@ -226,7 +226,7 @@ public class Vec2Test {
 	}
 
 	/**
-	 * Test method for {@link br.odb.utils.math.Vec2#scale(float)}.
+	 * Test method for {@link br.odb.gameutils.math.Vec2#scale(float)}.
 	 */
 	@Test
 	public void testScale() {
@@ -252,7 +252,7 @@ public class Vec2Test {
 	}
 
 	/**
-	 * Test method for {@link br.odb.utils.math.Vec2#scaled(float)}.
+	 * Test method for {@link br.odb.gameutils.math.Vec2#scaled(float)}.
 	 */
 	@Test
 	public void testScaledFloat() {
@@ -278,7 +278,7 @@ public class Vec2Test {
 	}
 
 	/**
-	 * Test method for {@link br.odb.utils.math.Vec2#addTo(br.odb.utils.math.Vec2)}.
+	 * Test method for {@link br.odb.gameutils.math.Vec2#addTo(br.odb.gameutils.math.Vec2)}.
 	 */
 	@Test
 	public void testAddTo() {
@@ -308,7 +308,7 @@ public class Vec2Test {
 	}
 
 	/**
-	 * Test method for {@link br.odb.utils.math.Vec2#negated()}.
+	 * Test method for {@link br.odb.gameutils.math.Vec2#negated()}.
 	 */
 	@Test
 	public void testNegated() {
@@ -319,7 +319,7 @@ public class Vec2Test {
 	}
 
 	/**
-	 * Test method for {@link br.odb.utils.math.Vec2#scaled(float, float)}.
+	 * Test method for {@link br.odb.gameutils.math.Vec2#scaled(float, float)}.
 	 */
 	@Test
 	public void testScaledFloatFloat() {

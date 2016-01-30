@@ -1,13 +1,13 @@
 /**
  * 
  */
-package br.odb.utils.tests;
+package br.odb.gameutils.tests;
 
 import junit.framework.Assert;
 
 import org.junit.Test;
 
-import br.odb.utils.math.Vec3;
+import br.odb.gameutils.math.Vec3;
 
 /**
  * @author monty

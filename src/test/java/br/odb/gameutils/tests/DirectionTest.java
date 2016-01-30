@@ -1,12 +1,12 @@
 /**
  * 
  */
-package br.odb.utils.tests;
+package br.odb.gameutils.tests;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import br.odb.utils.Direction;
+import br.odb.gameutils.Direction;
 
 /**
  * @author monty
@@ -15,7 +15,7 @@ import br.odb.utils.Direction;
 public class DirectionTest {
 
 	/**
-	 * Test method for {@link br.odb.utils.Direction#toString()}.
+	 * Test method for {@link Direction#toString()}.
 	 */
 	@Test
 	public void testToString() {
@@ -25,7 +25,7 @@ public class DirectionTest {
 	}
 
 	/**
-	 * Test method for {@link br.odb.utils.Direction#getDirectionForPrettyName(java.lang.String)}.
+	 * Test method for {@link Direction#getDirectionForPrettyName(java.lang.String)}.
 	 */
 	@Test
 	public void testGetDirectionForPrettyName() {
@@ -41,7 +41,7 @@ public class DirectionTest {
 	}
 
 	/**
-	 * Test method for {@link br.odb.utils.Direction#getDirectionForSimpleName(java.lang.String)}.
+	 * Test method for {@link Direction#getDirectionForSimpleName(java.lang.String)}.
 	 */
 	@Test
 	public void testGetDirectionForSimpleName() {
@@ -56,7 +56,7 @@ public class DirectionTest {
 	}
 
 	/**
-	 * Test method for {@link br.odb.utils.Direction#getOppositeDirection(br.odb.utils.Direction)}.
+	 * Test method for {@link Direction#getOppositeDirection(Direction)}.
 	 */
 	@Test
 	public void testGetOppositeDirection() {

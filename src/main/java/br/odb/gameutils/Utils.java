@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.odb.utils;
+package br.odb.gameutils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

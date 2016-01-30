@@ -1,4 +1,4 @@
-package br.odb.utils.tests;
+package br.odb.gameutils.tests;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.IOException;
 import org.junit.Assert;
 import org.junit.Test;
 
-import br.odb.utils.Utils;
+import br.odb.gameutils.Utils;
 
 
 public class UtilsTest {

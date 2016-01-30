@@ -1,8 +1,8 @@
-package br.odb.utils.math;
+package br.odb.gameutils.math;
 
 import java.io.Serializable;
 
-import br.odb.utils.Utils;
+import br.odb.gameutils.Utils;
 
 /**
  * 

@@ -1,13 +1,13 @@
-package br.odb.utils.tests;
+package br.odb.gameutils.tests;
 
 
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import br.odb.utils.Rect;
-import br.odb.utils.Utils;
-import br.odb.utils.math.Vec2;
+import br.odb.gameutils.Rect;
+import br.odb.gameutils.Utils;
+import br.odb.gameutils.math.Vec2;
 
 public class RectTest {
 	

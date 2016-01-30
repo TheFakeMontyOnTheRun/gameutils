@@ -1,9 +1,9 @@
-package br.odb.utils.tests;
+package br.odb.gameutils.tests;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import br.odb.utils.math.Matrix;
+import br.odb.gameutils.math.Matrix;
 
 public class MatrixTest {
 
