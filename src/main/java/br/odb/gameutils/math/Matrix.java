@@ -90,8 +90,7 @@ public class Matrix {
 			}
 		}
 
-		Matrix m = new Matrix(size, size, rawData);
-		return m;
+		return new Matrix(size, size, rawData);
 	}
 
 	public static Matrix makeRotationAlongZ(double rads) {
@@ -109,9 +108,7 @@ public class Matrix {
 		rawData[7] = 0.0f;
 		rawData[8] = 1.0f;
 
-		Matrix m = new Matrix(3, 3, rawData);
-
-		return m;
+		return new Matrix(3, 3, rawData);
 	}
 
 	public boolean isIdentity() {

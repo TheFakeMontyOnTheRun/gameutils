@@ -53,10 +53,7 @@ public class Rect {
 		if (!p0.equals(other.p0)) {
 			return false;
 		}
-		if (!p1.equals(other.p1)) {
-			return false;
-		}
-		return true;
+		return p1.equals(other.p1);
 	}
 
 	public Rect(Rect rect) {
@@ -141,12 +138,9 @@ public class Rect {
 		}
 		
 		b = ( another.p0.x > p0.x && another.p1.x < p1.x && another.p0.y < p0.y && another.p1.y > p1.y );
-		
-		if ( b ) {
-			return true;
-		}
-		
-		return false;
+
+		return b;
+
 	}
 
 	public boolean isInside(float x, float y) {

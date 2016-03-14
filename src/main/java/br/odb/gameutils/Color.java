@@ -169,10 +169,8 @@ public class Color implements Serializable {
 		if (g != other.g) {
 			return false;
 		}
-		if (r != other.r) {
-			return false;
-		}
-		return true;
+
+		return r == other.r;
 	}
 
 	public int getARGBColor() {

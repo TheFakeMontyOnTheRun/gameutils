@@ -8,7 +8,7 @@ public enum Direction {
 	final public String prettyName;
 	final public String simpleName;
 
-	private Direction(String simpleName, String name) {
+	Direction(String simpleName, String name) {
 		prettyName = name;
 		this.simpleName = simpleName;
 	}
